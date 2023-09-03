@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Charset</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div>
-    <input id="product-name" type="text" placeholder="Product" class="rainbow">
-<input id="product-quantity" type="text" placeholder="Quantity">
-<button onclick="addProduct()">Add product</button>
-</div>
-<ul id="product-container"></ul>
+    <h1 style="text-align: center;padding: 10px; color:rgb(12, 12, 12);">If the key of the object already in local
+        storage,it's value will be update; otherwise new key and value will be add in local storage </h1>
+    <div class="input">
+        <input id="product-name" type="text" placeholder="Product" class="rainbow">
+        <input id="product-quantity" type="text" placeholder="Quantity">
+        <button onclick="addProduct()">Add product</button>
+    </div>
+
+    <div class="display">
+        <div><span style="font-size: 32px; color: blue;text-decoration: none;">Added items will <br> show here</span>
+            <ul id="product-container" style="text-align: left ;list-style-position:inside; font-size: 25px;"></ul>
+        </div>
+        <div><span style="font-size: 32px; color: blue;text-decoration:none;">From Local Storage <br> to see changes :
+                <button style="background-color: brown; color: aliceblue; font-size: 16px;"
+                    id="local">click</button></span>
+            <ul id="local-storage-view" style="text-align: left; list-style-position:inside; font-size: 25px;"></ul>
+        </div>
+        <div><span style="font-size: 32px; color: blue;text-decoration:none;">Clear Local Storage <br>click on this :
+                <button style="background-color: brown; color: aliceblue; font-size: 16px;"
+                    id="clear">click</button></span>
+            <ul style="text-align: left; list-style-position:inside; font-size: 25px;"></ul>
+        </div>
+    </div>
     <script src="./script.js"></script>
 </body>
+
 </html>

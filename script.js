@@ -27,18 +27,31 @@ const getStoredShoppingCard = () => {
 };
 
 const saveProductToLocalStorage = (product, quantity) => {
-    const cart = getStoredShoppingCard();
-    cart[product] = quantity;
-    // console.log(cart)
-    const cartStringified = JSON.stringify(cart);
-    localStorage.setItem('cart',cartStringified);
+  const cart = getStoredShoppingCard();
+  cart[product] = quantity;
+  // console.log(cart)
+  const cartStringified = JSON.stringify(cart);
+  localStorage.setItem("cart", cartStringified);
 };
-const displayProductsFromLocalStorage = ()=>{
-    const savedCart = getStoredShoppingCard();
-    // console.log(savedCart);
-    for(const product in savedCart){
-const quantity = savedCart[product]
-console.log(product, quantity)
-    } 
-}
-displayProductsFromLocalStorage();
+const displayProductsFromLocalStorage = () => {
+  const savedCart = getStoredShoppingCard();
+  // console.log(savedCart);
+  for (const product in savedCart) {
+    const quantity = savedCart[product];
+    console.log(product, quantity);
+    const localStorageView = document.getElementById("local-storage-view");
+    const li = document.createElement("li");
+    li.innerHTML = `${product} : ${quantity}`;
+    localStorageView.appendChild(li);
+  }
+};
+// get data from local storage
+document.getElementById("local").addEventListener("click", () => {
+  document.getElementById("local-storage-view").innerHTML = "";
+  displayProductsFromLocalStorage();
+});
+// clear local storage
+document.getElementById("clear").addEventListener("click", () => {
+  localStorage.clear();
+  document.getElementById("local-storage-view").innerHTML = "";
+});
